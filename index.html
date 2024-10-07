@@ -8,7 +8,24 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 
     <style>
+        /* Import Inter and Instrument Serif Italic fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap'); /* Substitute with Instrument Serif if available */
+
+        /* Blur Fade-In Animation */
+        @keyframes fadeInBlurSlideUp {
+        from {
+            opacity: 0;
+            filter: blur(15px);
+            transform: translateY(20px); /* Slide up from 20px below */
+        }
+        to {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0); /* End at normal position */
+        }
+        }   
+
 
         body {
             font-family: 'Inter', sans-serif;
@@ -16,6 +33,7 @@
             padding: 0;
             background-color: #ffffff;
             color: #333;
+            animation: fadeInBlurSlideUp 1s ease-out forwards;
         }
 
         /* Navbar with app logo */
@@ -50,6 +68,18 @@
 
         .hero h1 span {
             display: block;
+        }
+
+        .no-wrap {
+        white-space: nowrap;
+        }
+
+
+        /* Apply Instrument Serif Italic to 'wallpapers' */
+        .hero h1 .italic {
+            font-family: "Instrument Serif", serif; /* Replace with 'Instrument Serif' if available */
+            font-weight: 500;
+            font-style: italic;
         }
 
         .hero h2 {
@@ -256,102 +286,102 @@
         }
 
         @media screen and (max-width: 768px) {
-        .hero h1 {
-            font-size: 2.5rem;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1rem;
+            }
+
+            .feature-item {
+                min-width: 200px;
+            }
+
+            .feature-item img {
+                height: 250px;
+            }
+
+            .wallpaper-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .phone-mockup {
+                margin: 0 auto 30px;
+            }
+
+            .phone-mockup img {
+                width: 150px !important;
+            }
+
+            .wallpaper-section h2 {
+                margin-left: 0;
+                font-size: 1.5rem;
+            }
+
+            .wallpaper-section img {
+                margin-left: 0;
+                max-width: 300px;
+            }
+
+            .gallery img {
+                height: 300px;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-buttons a {
+                margin-bottom: 10px;
+            }
         }
 
-        .hero h2 {
-            font-size: 1rem;
-        }
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
 
-        .feature-item {
-            min-width: 200px;
-        }
+            .hero h2 {
+                font-size: 0.9rem;
+            }
 
-        .feature-item img {
-            height: 250px;
-        }
+            .cta-button {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
 
-        .wallpaper-section {
-            flex-direction: column;
-            text-align: center;
-        }
+            .cta-button img {
+                height: 20px;
+            }
 
-        .phone-mockup {
-            margin: 0 auto 30px;
-        }
+            .feature-item {
+                min-width: 150px;
+            }
 
-        .phone-mockup img {
-            width: 150px !important;
-        }
+            .feature-item img {
+                height: 200px;
+            }
 
-        .wallpaper-section h2 {
-            margin-left: 0;
-            font-size: 1.5rem;
-        }
+            .feature-item p {
+                font-size: 0.9rem;
+            }
 
-        .wallpaper-section img {
-            margin-left: 0;
-            max-width: 300px;
-        }
+            .gallery img {
+                height: 250px;
+            }
 
-        .gallery img {
-            height: 300px;
-        }
+            footer {
+                padding: 20px;
+            }
 
-        .social-buttons {
-            flex-direction: column;
-            align-items: center;
+            footer a {
+                display: block;
+                margin: 10px 0;
+            }
         }
-
-        .social-buttons a {
-            margin-bottom: 10px;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .hero h1 {
-            font-size: 2rem;
-        }
-
-        .hero h2 {
-            font-size: 0.9rem;
-        }
-
-        .cta-button {
-            padding: 8px 20px;
-            font-size: 0.9rem;
-        }
-
-        .cta-button img {
-            height: 20px;
-        }
-
-        .feature-item {
-            min-width: 150px;
-        }
-
-        .feature-item img {
-            height: 200px;
-        }
-
-        .feature-item p {
-            font-size: 0.9rem;
-        }
-
-        .gallery img {
-            height: 250px;
-        }
-
-        footer {
-            padding: 20px;
-        }
-
-        footer a {
-            display: block;
-            margin: 10px 0;
-        }
-    }
     </style>
 </head>
 
@@ -367,7 +397,7 @@
     <section class="hero">
         <h1>
             <span>The ultimate app</span>
-            <span>for all your wallpaper needs</span>
+            <span class="no-wrap">for all your wallpaper needs</span>
         </h1>
         <h2>
             <span>Explore the endless possibilities of</span>
@@ -447,7 +477,7 @@
             <img src="images/wallpaper27.webp" alt="Wallpaper 27">
             <img src="images/wallpaper28.webp" alt="Wallpaper 28">
             <img src="images/wallpaper29.webp" alt="Wallpaper 29">
-            
+
             <!-- Duplicate for looping effect -->
             <img src="images/wallpaper1.webp" alt="Wallpaper 1">
             <img src="images/wallpaper2.webp" alt="Wallpaper 2">
@@ -502,11 +532,11 @@
     <footer>
         <p>&copy; 2024 Radpapers. All rights reserved.</p>
         <p>
-            <a href="/privacy-policy/">Privacy Policy</a>  
+            <a href="/privacy-policy/">Privacy Policy</a>
             <a href="/terms-of-use/">Terms of Use</a>
         </p>
     </footer>
 
 </body>
 
-</html>
+</html> 
