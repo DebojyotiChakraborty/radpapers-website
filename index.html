@@ -10,23 +10,22 @@
     <style>
         /* Import Inter and Instrument Serif Italic fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap'); /* Substitute with Instrument Serif if available */
-
+        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+    
         /* Blur Fade-In Animation */
         @keyframes fadeInBlurSlideUp {
-        from {
-            opacity: 0;
-            filter: blur(15px);
-            transform: translateY(20px); /* Slide up from 20px below */
-        }
-        to {
-            opacity: 1;
-            filter: blur(0);
-            transform: translateY(0); /* End at normal position */
-        }
+            from {
+                opacity: 0;
+                filter: blur(15px);
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
         }   
-
-
+    
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -35,53 +34,64 @@
             color: #333;
             animation: fadeInBlurSlideUp 1s ease-out forwards;
         }
-
-        /* Navbar with app logo */
+    
+        /* Navbar */
         .navbar {
             padding: 40px 20px 20px;
             text-align: center;
         }
-
+    
         .navbar img {
             height: 60px;
         }
-
+    
         .navbar h2 {
             font-weight: 800;
             font-size: 1.2rem;
             margin-top: 10px;
         }
-
+    
         /* Hero Section */
         .hero {
             text-align: center;
             padding: 10px 20px;
             margin-top: -30px;
+            position: relative;
         }
-
+    
+        .hero-background {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 60%; /* Increased for better visibility on smaller screens */
+            height: auto;
+            z-index: -1;
+            max-width: 80%; /* Limit the width for mobile */
+        }
+    
         .hero h1 {
             font-size: 3.6rem;
             font-weight: 900;
             color: #000000;
             line-height: 1.2;
         }
-
+    
         .hero h1 span {
             display: block;
         }
-
+    
         .no-wrap {
-        white-space: nowrap;
+            white-space: nowrap;
         }
-
-
-        /* Apply Instrument Serif Italic to 'wallpapers' */
+    
+        /* Italic font style */
         .hero h1 .italic {
-            font-family: "Instrument Serif", serif; /* Replace with 'Instrument Serif' if available */
+            font-family: "Instrument Serif", serif;
             font-weight: 500;
             font-style: italic;
         }
-
+    
         .hero h2 {
             font-size: 1.1rem;
             font-weight: 700;
@@ -89,7 +99,7 @@
             margin-bottom: 30px;
             line-height: 1.4;
         }
-
+    
         .cta-button {
             background-color: #000;
             color: #fff;
@@ -102,17 +112,17 @@
             display: inline-flex;
             align-items: center;
         }
-
+    
         .cta-button img {
             height: 24px;
             margin-right: 10px;
         }
-
+    
         .cta-button:hover {
             background-color: #FD3F6B;
         }
-
-        /* Scrollable features section */
+    
+        /* Features Section */
         .features {
             margin: 50px 0;
             text-align: center;
@@ -124,7 +134,7 @@
             font-weight: 600;
             color: #696969;
         }
-
+    
         .features-content {
             display: flex;
             gap: 10px;
@@ -132,11 +142,11 @@
             overflow-x: auto;
             scroll-behavior: smooth;
         }
-
+    
         .features-content::-webkit-scrollbar {
             display: none;
         }
-
+    
         .feature-item {
             min-width: 250px;
             padding: 10px;
@@ -144,24 +154,24 @@
             text-align: center;
             background-color: transparent;
         }
-
+    
         .feature-item img {
             width: auto;
             height: 350px;
             object-fit: cover;
             margin-bottom: 10px;
         }
-
+    
         /* Wallpaper Section */
         .wallpaper-section {
             display: flex;
             align-items: center;
-            margin: 50px 0;
+            margin: 60px 0;
             text-align: left;
             padding: 20px;
             margin-bottom: 80px;
         }
-
+    
         .phone-mockup {
             margin-right: 60px;
             margin-left: 60px;
@@ -171,79 +181,78 @@
             width: 200px !important;
             height: auto !important;
         }
-
+    
         .wallpaper-section h2 {
             color: #000000;
             font-weight: 800;
             font-size: 2rem;
             margin-bottom: 10px;
-            margin-left: 30px;
         }
-
+    
         .wallpaper-section img {
             width: 100%;
             max-width: 400px;
             height: auto;
             margin-top: 30px;
-            margin-left: 30px;
         }
-
+    
         /* Gallery Section */
         .gallery-wrapper {
             overflow: hidden;
             width: 100%;
         }
-
+    
         .gallery {
             display: flex;
             animation: scroll-left 55s linear infinite;
         }
-
+    
         .gallery img {
             width: auto;
             height: 450px;
             object-fit: cover;
             border-radius: 10px;
-            margin: 0 5px; /* Adjusted for spacing */
+            margin: 0 5px; 
             margin-bottom: 80px;
         }
-
+    
         @keyframes scroll-left {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(calc(-300px * 29 - 5px * 28)); /* Total width of all 29 images + spacing */
+                transform: translateX(calc(-300px * 29 - 5px * 28));
             }
         }
-
+    
         /* Socials section */
         .socials {
             background-color: #000000;
             padding: 30px;
             text-align: center;
         }
-
+    
         .socials h2 {
             color: #ffffff;
             font-weight: 700;
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
-
+    
         .socials p {
             color: #b7b7b7;
             font-size: 1rem;
             font-weight: 700;
             margin-bottom: 35px;
         }
-
+    
         .social-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap; /* Wrap buttons on small screens */
         }
-
+    
         .social-buttons a {
             background-color: #ffffff;
             color: #000000;
@@ -256,16 +265,16 @@
             display: inline-flex;
             align-items: center;
         }
-
+    
         .social-buttons a img {
             height: 24px;
             margin-right: 10px;
         }
-
+    
         .social-buttons a:hover {
             background-color: #FD3F6B;
         }
-
+    
         /* Footer */
         footer {
             background-color: #000000;
@@ -273,116 +282,118 @@
             padding: 30px;
             text-align: center;
         }
-
+    
         footer a {
             color: white;
             text-decoration: none;
             font-weight: 600;
             margin: 0 10px;
         }
-
+    
         footer a:hover {
             text-decoration: underline;
         }
-
+    
+        /* Media Queries */
         @media screen and (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-
+    
             .hero h2 {
                 font-size: 1rem;
             }
-
+    
             .feature-item {
                 min-width: 200px;
             }
-
+    
             .feature-item img {
                 height: 250px;
             }
-
+    
             .wallpaper-section {
                 flex-direction: column;
                 text-align: center;
             }
-
+    
             .phone-mockup {
                 margin: 0 auto 30px;
             }
-
+    
             .phone-mockup img {
                 width: 150px !important;
             }
-
+    
             .wallpaper-section h2 {
                 margin-left: 0;
                 font-size: 1.5rem;
             }
-
+    
             .wallpaper-section img {
                 margin-left: 0;
                 max-width: 300px;
             }
-
+    
             .gallery img {
                 height: 300px;
             }
-
+    
             .social-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-
+    
             .social-buttons a {
                 margin-bottom: 10px;
             }
         }
-
+    
         @media screen and (max-width: 480px) {
             .hero h1 {
                 font-size: 2rem;
             }
-
+    
             .hero h2 {
                 font-size: 0.9rem;
             }
-
+    
             .cta-button {
                 padding: 8px 20px;
                 font-size: 0.9rem;
             }
-
+    
             .cta-button img {
                 height: 20px;
             }
-
+    
             .feature-item {
                 min-width: 150px;
             }
-
+    
             .feature-item img {
                 height: 200px;
             }
-
+    
             .feature-item p {
                 font-size: 0.9rem;
             }
-
+    
             .gallery img {
                 height: 250px;
             }
-
+    
             footer {
                 padding: 20px;
             }
-
+    
             footer a {
                 display: block;
                 margin: 10px 0;
             }
         }
     </style>
+    
 </head>
 
 <body>
@@ -395,9 +406,10 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <img src="images/background.png" alt="Background" class="hero-background">
         <h1>
             <span>The ultimate app</span>
-            <span class="no-wrap">for all your wallpaper needs</span>
+            <span>for all your wallpaper needs</span>
         </h1>
         <h2>
             <span>Explore the endless possibilities of</span>
